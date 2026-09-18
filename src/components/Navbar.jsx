@@ -1,11 +1,12 @@
 import { Link, NavLink } from "react-router";
 
-
 export default function Navbar() {
-//   const navLinkClass = ({ isActive }) =>
-//     `text-sm font-medium transition-colors ${
-//       isActive ? "text-marquee" : "text-paper/80 hover:text-paper"
-//     }`;
+  const navLinkClass = ({ isActive }) =>
+    `text-sm font-medium transition-colors ${
+      isActive
+        ? "text-marquee"
+        : "text-paper/80 hover:text-paper"
+    }`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-700 bg-ink-900/90 backdrop-blur">
@@ -28,11 +29,11 @@ export default function Navbar() {
           className="flex items-center gap-4 sm:gap-6"
           aria-label="Primary navigation"
         >
-          <NavLink to="/">
+          <NavLink to="/" className={navLinkClass}>
             Home
           </NavLink>
 
-          <NavLink to="/about">
+          <NavLink to="/movies" className={navLinkClass}>
             Movies
           </NavLink>
 
