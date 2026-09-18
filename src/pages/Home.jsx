@@ -19,7 +19,7 @@ export default function Home() {
         <div className="mt-10">
           <Link
             to="/movies"
-            className="inline-block rounded-full bg-marquee px-8 py-3 text-base font-semibold text-ink-950 transition-transform hover:-translate-y-0.5 hover:bg-marquee-light"
+            className="inline-block bg-amber-600 text-white rounded-full bg-marquee px-8 py-3 text-base font-semibold text-ink-950 transition-transform hover:-translate-y-0.5 hover:bg-marquee-light"
           >
             Explore Now
           </Link>

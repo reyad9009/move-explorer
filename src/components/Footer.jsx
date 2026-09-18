@@ -1,9 +1,11 @@
+import { FaWpexplorer } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="border-t border-ink-700 bg-ink-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
         <div className="flex items-center gap-2 font-display text-lg font-semibold text-paper">
-          <span aria-hidden="true">🎬</span>
+          <span aria-hidden="true"><FaWpexplorer /></span>
           <span>MovieExplorer</span>
         </div>
         <p className="text-sm text-paper-dim">
