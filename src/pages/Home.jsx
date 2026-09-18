@@ -3,8 +3,6 @@ import { Link } from "react-router";
 export default function Home() {
   return (
     <div>
-      <div className="filmstrip" aria-hidden="true" />
-
       <section className="marquee-glow relative overflow-hidden px-5 py-24 text-center sm:py-32">
         <p className="font-display text-sm uppercase tracking-[0.3em] text-marquee">
           Now Showing
@@ -28,24 +26,22 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="filmstrip" aria-hidden="true" />
-
-      {/* <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
         <div className="grid gap-8 sm:grid-cols-3">
-          <Feature
-            title="Search anything"
-            description="Find a show by title and get results as you type, pulled straight from TVMaze's catalog."
-          />
-          <Feature
-            title="Rich detail views"
-            description="See ratings, premiere dates, genres, and a full summary for every title in a single click."
-          />
-          <Feature
-            title="Built for every screen"
-            description="A grid that reflows from a single column on your phone to a full gallery on desktop."
-          />
+          <div className="border rounded-2xl p-3 border-black-5">
+            <h2 className="text-2xl font-bold pb-3">Search anything</h2>
+            <p>Find a show by title and get results as you type, pulled straight from TVMaze's catalog.</p>
+          </div>
+          <div className="border rounded-2xl p-3 border-black-5">
+            <h2 className="text-2xl font-bold pb-3">Rich detail views</h2>
+            <p>See ratings, premiere dates, genres, and a full summary for every title in a single click.</p>
+          </div>
+          <div className="border rounded-2xl p-3 border-black-5">
+            <h2 className="text-2xl font-bold pb-3">Built for every screen</h2>
+            <p>A grid that reflows from a single column on your phone to a full gallery on desktop.</p>
+          </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
