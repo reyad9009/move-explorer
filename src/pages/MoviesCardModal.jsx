@@ -6,22 +6,23 @@ export default function MovieDetailsModal({ show, onClose }) {
 
   return (
     <div
-      className="fixed overflow-hidden inset-0 z-9999 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-black/70 p-3 sm:p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="relative bg-white w-full max-w-2xl rounded-2xl border border-ink-700 bg-ink-900 shadow-2xl"
+        className="relative flex max-h-[95vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-ink-700 bg-white shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 bg-white z-20 flex h-10 w-10 items-center justify-center rounded-full bg-ink-950/80 text-2xl text-paper transition-colors hover:bg-marquee hover:text-ink-950 cursor-pointer"
+          className="absolute right-3 top-3 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white text-2xl text-black transition-colors hover:bg-marquee"
           aria-label="Close details"
         >
           ×
         </button>
-        <div className="aspect-video w-full overflow-hidden rounded-t-2xl bg-ink-800">
+
+        <div className="aspect-video w-full shrink-0 overflow-hidden rounded-t-2xl bg-ink-800">
           {show.image?.original ? (
             <img
               src={show.image.original}
@@ -34,12 +35,14 @@ export default function MovieDetailsModal({ show, onClose }) {
             </div>
           )}
         </div>
-        <div className="p-6">
-          <h2 className="font-display text-2xl font-bold text-paper">
+
+        <div className="overflow-y-auto p-4 sm:p-6">
+          <h2 className="font-display text-xl font-bold text-black sm:text-2xl">
             {show.name}
           </h2>
 
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-paper-dim">
+          {/* Rating / Date / Runtime */}
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-gray-600 sm:gap-3 sm:text-sm">
             <div className="flex items-center gap-2">
               <FaStar />
               <span>
@@ -50,6 +53,7 @@ export default function MovieDetailsModal({ show, onClose }) {
             </div>
 
             <span>•</span>
+
             <div className="flex items-center gap-2">
               <FaCalendar />
               <span>{show.premiered?.slice(0, 4) || "N/A"}</span>
@@ -66,56 +70,59 @@ export default function MovieDetailsModal({ show, onClose }) {
               </>
             )}
           </div>
+
           {show.genres?.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {show.genres.map((genre) => (
                 <span
                   key={genre}
-                  className="rounded-full border border-ink-700 px-3 py-1 text-xs text-paper-dim"
+                  className="rounded-full border border-gray-300 px-3 py-1 text-xs text-gray-600"
                 >
                   {genre}
                 </span>
               ))}
             </div>
           )}
+
           <div className="mt-5">
-            <h3 className="mb-2 font-display text-lg font-semibold text-paper">
+            <h3 className="mb-2 font-display text-base font-semibold text-black sm:text-lg">
               Overview
             </h3>
 
             <div
-              className="leading-7 text-paper-dim"
+              className="text-sm leading-6 text-gray-600 sm:text-base sm:leading-7"
               dangerouslySetInnerHTML={{
                 __html: show.summary || "No description available.",
               }}
             />
           </div>
-          <div className="mt-5 grid gap-3 rounded-xl border border-ink-700 bg-ink-800 p-4 text-sm sm:grid-cols-2">
-            <p className="text-paper-dim">
-              <span className="font-semibold text-paper">Language:</span>{" "}
+
+          <div className="mt-5 grid gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm sm:grid-cols-2">
+            <p className="text-gray-600">
+              <span className="font-semibold text-black">Language:</span>{" "}
               {show.language || "N/A"}
             </p>
 
-            <p className="text-paper-dim">
-              <span className="font-semibold text-paper">Status:</span>{" "}
+            <p className="text-gray-600">
+              <span className="font-semibold text-black">Status:</span>{" "}
               {show.status || "N/A"}
             </p>
 
-            <p className="text-paper-dim">
-              <span className="font-semibold text-paper">Type:</span>{" "}
+            <p className="text-gray-600">
+              <span className="font-semibold text-black">Type:</span>{" "}
               {show.type || "N/A"}
             </p>
 
-            <p className="text-paper-dim">
-              <span className="font-semibold text-paper">Network:</span>{" "}
+            <p className="text-gray-600">
+              <span className="font-semibold text-black">Network:</span>{" "}
               {show.network?.name || "N/A"}
             </p>
           </div>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+          <div className="mt-6 flex justify-end">
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full border border-ink-700 px-5 py-2.5 text-sm font-semibold text-paper transition-colors hover:bg-ink-800 cursor-pointer"
+              className="w-full cursor-pointer rounded-full border border-gray-300 px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-gray-100 sm:w-auto"
             >
               ❌ Close
             </button>

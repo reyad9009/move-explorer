@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Movies() {
   const movies = useLoaderData();
-  console.log(movies)
+  console.log(movies);
   const [selectedShow, setSelectedShow] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState(null);
@@ -39,7 +39,6 @@ export default function Movies() {
   return (
     <div>
       <main className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
-        {/* Header + Search */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="font-display text-2xl font-bold text-paper">
             Browse Movies
@@ -57,7 +56,6 @@ export default function Movies() {
         {loading && (
           <div className="py-10 text-center text-paper-dim">Searching...</div>
         )}
-
         {!loading && searchResults && searchResults.length === 0 && (
           <div className="py-16 text-center">
             <h2 className="text-xl font-semibold text-paper">No shows found</h2>
@@ -69,7 +67,7 @@ export default function Movies() {
         )}
 
         {!loading && displayMovies.length > 0 && (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {displayMovies.map((show) => {
               return (
                 <article
@@ -82,7 +80,7 @@ export default function Movies() {
                         src={show.image.medium}
                         alt={`${show.name} poster`}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="h-96 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     ) : (
                       <div className="flex h-full items-center justify-center text-sm text-paper-dim">
@@ -113,7 +111,7 @@ export default function Movies() {
                     <button
                       type="button"
                       onClick={() => setSelectedShow(show)}
-                      className="mt-auto w-full cursor-pointer rounded-full border border-marquee px-4 py-2 text-sm font-semibold text-marquee transition-colors hover:bg-marquee hover:text-ink-950"
+                      className="mt-auto w-full cursor-pointer rounded-full bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-amber-500"
                     >
                       See Details
                     </button>
